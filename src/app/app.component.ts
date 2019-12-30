@@ -7,13 +7,13 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: any;
+  title: any = 'SEES';
 
   constructor(private http: HttpClient) {
-    // this.http.get<any>('https://heroku-smart.herokuapp.com/home').subscribe((resp) => {
-    //   console.log(resp);
-    //   this.title = resp.toString();
-    // });
+    this.http.get<any>('https://heroku-smart.herokuapp.com/home').subscribe((resp) => {
+      console.log(resp);
+      this.title = resp.toString();
+    });
   }
 
 }
