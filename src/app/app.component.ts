@@ -10,12 +10,12 @@ import {AppService} from './app.service';
 
 export class AppComponent {
   temp: any;
-  title: any = '';
+  title: any = 'EESS';
 
   constructor(private appService: AppService) {
     this.appService.getMessage().subscribe((resp) => {
       this.temp = resp;
-      this.title = this.temp.name + '-' + this.temp.surname;
+      this.title = this.temp.content;
     });
   }
 }
