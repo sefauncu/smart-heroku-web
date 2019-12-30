@@ -1,20 +1,22 @@
 import {Component} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {AppService} from './app.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title: any = 'SEES';
 
-  constructor(private http: HttpClient) {
-    this.http.get<any>('https://heroku-smart.herokuapp.com/home').subscribe((resp) => {
-      console.log(resp);
-      this.title = resp.toString();
+
+export class AppComponent {
+  temp: any;
+  title: any = '';
+
+  constructor(private appService: AppService) {
+    this.appService.getMessage().subscribe((resp) => {
+      this.temp = resp;
+      this.title = this.temp.name + '-' + this.temp.surname;
     });
   }
-
 }
 
