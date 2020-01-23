@@ -10,7 +10,7 @@ import {AppService} from './app.service';
 
 export class AppComponent {
   temp: any;
-  title: any = 'EESS';
+  title: any = '';
 
   constructor(private appService: AppService) {
     this.appService.getMessage().subscribe((resp) => {
